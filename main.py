@@ -3,7 +3,9 @@ import argparse             # For CLI args
 from pathlib import Path    # For file detection
 import random
 
-#TODO Add an argument for writing out to file?
+#TODO 1. Edit the number argument.
+#       2. Add an argument for writing out to file.
+#          3.
 parser = argparse.ArgumentParser()
 parser.add_argument("-n","--number",
                     help="Number of names to be generated", required=False)
