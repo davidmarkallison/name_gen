@@ -9,7 +9,10 @@ parser.add_argument("-n","--number",
                     help="Number of names to be generated", required=False)
 args = parser.parse_args()
 
-num = int(args.number)
+if args.number != None:
+    num = int(args.number)
+else:
+    num = 1
 
 #TODO Take arguments from the command line regarding the amount of names 
 #     to be generated.
