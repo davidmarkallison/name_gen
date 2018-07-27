@@ -21,10 +21,20 @@ else:
 #TODO Take arguments from the command line regarding the amount of names 
 #     to be generated.
 def main():
+    printBanner()
     generateFamilyNames()
     generateFirstNames()
     pick(num)
     print("\n>\tComplete!")
+
+def printBanner():
+    print("""\n##    ##    ###    ##     ## ########          ######   ######## ##    ## 
+###   ##   ## ##   ###   ### ##               ##    ##  ##       ###   ## 
+####  ##  ##   ##  #### #### ##               ##        ##       ####  ## 
+## ## ## ##     ## ## ### ## ######           ##   #### ######   ## ## ## 
+##  #### ######### ##     ## ##               ##    ##  ##       ##  #### 
+##   ### ##     ## ##     ## ##               ##    ##  ##       ##   ### 
+##    ## ##     ## ##     ## ######## #######  ######   ######## ##    ##\n\nDavid Allison > NameGen > Generate Your Own DnD Names!""")
 
 
 def generateFamilyNames():
