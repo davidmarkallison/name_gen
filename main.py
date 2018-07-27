@@ -9,6 +9,8 @@ import random
 parser = argparse.ArgumentParser()
 parser.add_argument("-n","--number",
                     help="Number of names to be generated", required=False)
+parser.add_argument("-o","--output",
+                    help="File to be written to (.txt is automatically appended)", required=False)
 args = parser.parse_args()
 
 if args.number != None:
@@ -22,7 +24,7 @@ def main():
     generateFamilyNames()
     generateFirstNames()
     pick(num)
-    print("\n\tComplete!")
+    print("\n>\tComplete!")
 
 
 def generateFamilyNames():
@@ -51,7 +53,7 @@ def generateFamilyNames():
         except Exception as ex:
             print(ex)
     else:
-        print("\n\'OUT_familynames.txt\' already generated.")
+        print("\n>\t\'OUT_familynames.txt\' already generated.")
 
 
 def generateFirstNames():
@@ -80,7 +82,7 @@ def generateFirstNames():
         except Exception as ex:
             print(ex)
     else:
-        print("\n\'OUT_firstnames.txt\' already generated.")
+        print("\n>\t\'OUT_firstnames.txt\' already generated.")
 
 
 def pick(num):
@@ -95,11 +97,24 @@ def pick(num):
     tempFirst = firstnames_only.readlines()
     tempFirst = tempFirst[0].split(",")
 
-    #TODO Complete the pick function.
-    for i in range(0, num):
-        print((i+1) , "\t" ,
-            tempFirst[random.randint(0, len(tempFirst))].capitalize(),
-            tempFam[random.randint(0, len(tempFam))].capitalize())
+    if args.output != None:
+        #TODO Complete the pick function.
+        generatedNames = open(args.output + ".txt", "w")
+        for i in range(0, num):
+            generatedNames.write("{}\t{} {}\n".format(
+                    (i+1),
+                    tempFirst[random.randint(0, len(tempFirst))].capitalize(),
+                    tempFam[random.randint(0, len(tempFam))].capitalize()
+                )
+            )
+        print(">\t{}.txt has been written to.".format(args.output))
+    else:
+        #TODO Complete the pick function.
+        for i in range(0, num):
+            print((i+1) , "\t" ,
+                tempFirst[random.randint(0, len(tempFirst))].capitalize(),
+                tempFam[random.randint(0, len(tempFam))].capitalize())
 
 # Invoke main function
-main()
+if __name__ == "__main__":
+    main()
