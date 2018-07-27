@@ -25,15 +25,21 @@ in your command line to see if you have Python version 3 installed (Python versi
 
 2. Navigate to the folder conatining main.py using the 'cd' command (change directory):
 ```
-C:\> cd path\to\file\containing\main\files 
+C:\> cd path\to\file\containing\main\files\ 
 ```
 
 3. To run the script and generate just ONE random name:
 ```
-python main.py
+python name_gen.py
 ```
 
-4. Alternatively, replace 'X' in the following code to input the amount of names you want to generate:
+4. Alternatively, replace "25" in the following code to declare the amount of names you want to generate:
 ```
-python main.py --number X
+python name_gen.py -n 25
 ```
+
+5.  Don't like the command line output? Want to write to a file instead? Try this:
+```
+python name_gen.py -n 25 -o RandomNames
+```
+**NOTE: The .txt extension is added automatically to your output file!**
